@@ -1,0 +1,32 @@
+{
+  "thread_id": "fixture-thread-001",
+  "subject": "Welcome to Modula Mail",
+  "participants": [
+    {
+      "identity_id": "system:gaia",
+      "handle": "gaia",
+      "username": "gaia",
+      "display_name": "Gaia"
+    },
+    {
+      "identity_id": "user:demo",
+      "handle": "demo",
+      "username": "demo",
+      "display_name": "Demo Identity"
+    }
+  ],
+  "messages": [
+    {
+      "message_id": "fixture-message-001",
+      "thread_id": "fixture-thread-001",
+      "sender_identity_id": "system:gaia",
+      "recipient_identity_ids": [
+        "user:demo"
+      ],
+      "subject": "Welcome to Modula Mail",
+      "body": "Mail is now part of the identity-first Modula runtime.",
+      "created_at": 1762473600,
+      "status": "sent"
+    }
+  ]
+}

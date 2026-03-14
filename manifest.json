@@ -4,7 +4,7 @@
   "name": "Email",
   "subtitle": "Private mail and communication module for Modula identities",
   "description": "Identity-first Email module for Inbox, Sent, Drafts, and safe mail automation inside Modula.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "entry": "module.json",
   "icon": "icon.svg",
@@ -19,7 +19,7 @@
     "issues": "https://github.com/modula-mod/modula-email/issues"
   },
   "release": {
-    "current": "1.0.1",
+    "current": "1.0.2",
     "channel": "stable"
   },
   "compatibility": {

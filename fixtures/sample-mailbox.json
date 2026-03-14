@@ -1,0 +1,27 @@
+{
+  "mailbox_id": "fixture-mailbox-demo",
+  "folder": "inbox",
+  "threads": [
+    {
+      "thread_id": "fixture-thread-001",
+      "subject": "Welcome to Modula Mail",
+      "participants": [
+        {
+          "identity_id": "system:gaia",
+          "handle": "gaia",
+          "username": "gaia",
+          "display_name": "Gaia"
+        },
+        {
+          "identity_id": "user:demo",
+          "handle": "demo",
+          "username": "demo",
+          "display_name": "Demo Identity"
+        }
+      ],
+      "updated_at": 1762473600,
+      "unread_count": 1,
+      "last_message_preview": "Mail is now part of the identity-first Modula runtime."
+    }
+  ]
+}

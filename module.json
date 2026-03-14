@@ -3,7 +3,7 @@
   "slug": "email",
   "name": "Email",
   "namespace": "modula.email",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "package_kind": "module",
   "class": "hybrid",
   "placements": [
@@ -40,6 +40,16 @@
       "path": "/mail/drafts",
       "kind": "surface",
       "label": "Drafts"
+    },
+    {
+      "path": "/mail/compose",
+      "kind": "route",
+      "label": "Compose"
+    },
+    {
+      "path": "/mail/thread/[id]",
+      "kind": "route",
+      "label": "Mail Thread"
     }
   ],
   "surfaces": [
@@ -81,7 +91,8 @@
     "mail.read",
     "mail.compose",
     "mail.send",
-    "mail.drafts.read"
+    "mail.drafts.read",
+    "mail.thread.read"
   ],
   "capabilities_required": [],
   "capabilities_optional": [],
@@ -111,13 +122,25 @@
         "openComposer",
         "sendDraft"
       ]
+    },
+    {
+      "id": "mail.threads.v1",
+      "capability": "mail.thread.read",
+      "version": "1.0.0",
+      "permissions_required": [
+        "mail.read"
+      ],
+      "methods": [
+        "getThread"
+      ]
     }
   ],
   "services_required": [],
   "services_optional": [],
   "events_emitted": [
     "mail.sent",
-    "mail.received"
+    "mail.received",
+    "mail.draft.saved"
   ],
   "events_listened": [],
   "actions_provided": [
@@ -138,6 +161,16 @@
       "permissions_required": [
         "mail.send"
       ]
+    },
+    {
+      "id": "mail.draft.save",
+      "title": "Save Draft",
+      "capability": "mail.drafts.read",
+      "service": "mail.compose.v1",
+      "permissions_required": [
+        "mail.compose",
+        "mail.drafts.read"
+      ]
     }
   ],
   "triggers_emitted": [
@@ -148,6 +181,10 @@
     {
       "id": "mail.received",
       "title": "Mail Received"
+    },
+    {
+      "id": "mail.draft.saved",
+      "title": "Mail Draft Saved"
     }
   ],
   "jobs_provided": [],
@@ -158,6 +195,13 @@
       "steps": [
         "mail.compose.open",
         "mail.send.submit"
+      ]
+    },
+    {
+      "id": "mail.draft.autosave",
+      "title": "Autosave Mail Draft",
+      "steps": [
+        "mail.draft.save"
       ]
     }
   ],

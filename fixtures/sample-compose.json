@@ -1,0 +1,8 @@
+{
+  "to": [
+    "demo"
+  ],
+  "subject": "Identity-first compose example",
+  "body": "This fixture shows the compose payload used by the host-backed mail routes.",
+  "thread_id": null
+}
