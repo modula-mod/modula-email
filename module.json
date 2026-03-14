@@ -1,0 +1,171 @@
+{
+  "id": "email",
+  "slug": "email",
+  "name": "Email",
+  "namespace": "modula.email",
+  "version": "1.0.0",
+  "package_kind": "module",
+  "class": "hybrid",
+  "placements": [
+    "sidebar",
+    "standalone_page",
+    "board_widget"
+  ],
+  "runtime": "sandbox",
+  "runtime_renderer": "email_host",
+  "bundle_entry": "index.html",
+  "entry": "index.html",
+  "entry_points": {
+    "frontend": "frontend/routes/+page.svelte",
+    "backend": "backend/router.py"
+  },
+  "route": "/mail",
+  "routes": [
+    {
+      "path": "/mail",
+      "kind": "surface",
+      "label": "Email"
+    },
+    {
+      "path": "/mail/inbox",
+      "kind": "surface",
+      "label": "Inbox"
+    },
+    {
+      "path": "/mail/sent",
+      "kind": "surface",
+      "label": "Sent"
+    },
+    {
+      "path": "/mail/drafts",
+      "kind": "surface",
+      "label": "Drafts"
+    }
+  ],
+  "surfaces": [
+    {
+      "type": "sidebar_page",
+      "id": "mail-home",
+      "title": "Email",
+      "route": "/mail"
+    },
+    {
+      "type": "sidebar_page",
+      "id": "mail-inbox",
+      "title": "Inbox",
+      "route": "/mail/inbox"
+    },
+    {
+      "type": "sidebar_page",
+      "id": "mail-sent",
+      "title": "Sent",
+      "route": "/mail/sent"
+    },
+    {
+      "type": "sidebar_page",
+      "id": "mail-drafts",
+      "title": "Drafts",
+      "route": "/mail/drafts"
+    }
+  ],
+  "widgets": [
+    "recent-mail"
+  ],
+  "permissions": [
+    "mail.read",
+    "mail.compose",
+    "mail.send",
+    "mail.drafts.read"
+  ],
+  "capabilities_provided": [
+    "mail.read",
+    "mail.compose",
+    "mail.send",
+    "mail.drafts.read"
+  ],
+  "capabilities_required": [],
+  "capabilities_optional": [],
+  "services_provided": [
+    {
+      "id": "mail.inbox.v1",
+      "capability": "mail.read",
+      "version": "1.0.0",
+      "permissions_required": [
+        "mail.read"
+      ],
+      "methods": [
+        "listInbox",
+        "listSent",
+        "listDrafts"
+      ]
+    },
+    {
+      "id": "mail.compose.v1",
+      "capability": "mail.compose",
+      "version": "1.0.0",
+      "permissions_required": [
+        "mail.compose",
+        "mail.send"
+      ],
+      "methods": [
+        "openComposer",
+        "sendDraft"
+      ]
+    }
+  ],
+  "services_required": [],
+  "services_optional": [],
+  "events_emitted": [
+    "mail.sent",
+    "mail.received"
+  ],
+  "events_listened": [],
+  "actions_provided": [
+    {
+      "id": "mail.compose.open",
+      "title": "Open Compose",
+      "capability": "mail.compose",
+      "service": "mail.compose.v1",
+      "permissions_required": [
+        "mail.compose"
+      ]
+    },
+    {
+      "id": "mail.send.submit",
+      "title": "Send Mail",
+      "capability": "mail.send",
+      "service": "mail.compose.v1",
+      "permissions_required": [
+        "mail.send"
+      ]
+    }
+  ],
+  "triggers_emitted": [
+    {
+      "id": "mail.sent",
+      "title": "Mail Sent"
+    },
+    {
+      "id": "mail.received",
+      "title": "Mail Received"
+    }
+  ],
+  "jobs_provided": [],
+  "workflows_provided": [
+    {
+      "id": "mail.compose.send",
+      "title": "Compose and Send Mail",
+      "steps": [
+        "mail.compose.open",
+        "mail.send.submit"
+      ]
+    }
+  ],
+  "agent_roles": [],
+  "compatibility": {
+    "modula_core": ">=1.0.0",
+    "api_version": "1"
+  },
+  "update_channel": "stable",
+  "hooks": {}
+}

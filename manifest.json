@@ -1,0 +1,37 @@
+{
+  "id": "email",
+  "slug": "email",
+  "name": "Email",
+  "subtitle": "Private mail and communication module for Modula identities",
+  "description": "Identity-first Email module for Inbox, Sent, Drafts, and safe mail automation inside Modula.",
+  "version": "1.0.0",
+  "type": "module",
+  "entry": "module.json",
+  "icon": "icon.svg",
+  "publisher": "modula-mod",
+  "category": "core",
+  "repository": "https://github.com/modula-mod/modula-email",
+  "assets": {
+    "icon": "icon.svg"
+  },
+  "support": {
+    "docs": "./docs",
+    "issues": "https://github.com/modula-mod/modula-email/issues"
+  },
+  "release": {
+    "current": "1.0.0",
+    "channel": "stable"
+  },
+  "compatibility": {
+    "modula_core": ">=1.0.0",
+    "api_version": "1"
+  },
+  "risk_tier": "A",
+  "tags": [
+    "email",
+    "mail",
+    "identity",
+    "communication",
+    "productivity"
+  ]
+}

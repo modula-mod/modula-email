@@ -1,0 +1,24 @@
+{
+  "id": "recent-mail",
+  "title": "Recent Mail",
+  "description": "Private mail summary widget for Inbox and system communication.",
+  "category": "communication",
+  "sizes": ["m", "l"],
+  "permissions": ["mail.read"],
+  "rendererType": "host-component",
+  "settings": {
+    "showUnreadOnly": {
+      "type": "boolean",
+      "default": false
+    },
+    "limit": {
+      "type": "number",
+      "default": 5
+    }
+  },
+  "component": "frontend/components/EmailHome.svelte",
+  "fallback": {
+    "type": "empty-state",
+    "message": "No mail available"
+  }
+}
